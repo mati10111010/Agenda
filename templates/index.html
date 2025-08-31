@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Agenda de Tareas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Mi Agenda de Tareas</h1>
+    <a href="{{ url_for('crear_tarea') }}" class="btn crear-btn">Crear nueva tarea</a>
+    {% if tareas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Prioridad</th>
+                    <th>Estado</th>
+                    <th>Fecha Límite</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarea in tareas %}
+                <tr>
+                    <td>{{ tarea.titulo }}</td>
+                    <td>{{ tarea.prioridad }}</td>
+                    <td>{{ tarea.estado }}</td>
+                    <td>{{ tarea.fecha_limite }}</td>
+                    <td class="acciones">
+                        <a href="{{ url_for('editar_tarea', id=tarea.id) }}" class="btn editar-btn">Editar</a>
+                        <a href="{{ url_for('eliminar_tarea', id=tarea.id) }}" class="btn eliminar-btn" onclick="return confirm('¿Estás seguro de que quieres eliminar esta tarea?');">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p class="sin-tareas">Aún no tienes tareas en tu agenda. ¡Crea una ahora!</p>
+    {% endif %}
+</body>
+</html>

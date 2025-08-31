@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Tarea</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>Crear Nueva Tarea</h1>
+    <form action="{{ url_for('crear_tarea') }}" method="post">
+        
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required><br>
+        
+        <label for="prioridad">Prioridad:</label>
+        <select id="prioridad" name="prioridad">
+            <option value="Alta">Alta</option>
+            <option value="Media">Media</option>
+            <option value="Baja">Baja</option>
+        </select><br>
+
+        <label for="estado">Estado:</label>
+        <select id="estado" name="estado">
+            <option value="Pendiente">Pendiente</option>
+            <option value="En progreso">En progreso</option>
+            <option value="Completada">Completada</option>
+        </select><br>
+
+        <label for="fecha_limite">Fecha Límite:</label>
+        <input type="date" id="fecha_limite" name="fecha_limite"><br>
+
+        <button type="submit">Guardar Tarea</button>
+    </form>
+    <a href="{{ url_for('index') }}">Cancelar y volver a la lista</a>
+</body>
+</html>
