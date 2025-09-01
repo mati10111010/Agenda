@@ -28,11 +28,11 @@
         </select><br>
 
         <label for="fecha_limite">Fecha Límite:</label>
-        <input type="date" id="fecha_limite" name="fecha_limite"><br>
+        <input type="date" id="fecha_limite" name="fecha_limite" required><br>
 
         <button type="submit">Guardar Tarea</button>
     </form>
     <a href="{{ url_for('home') }}">Cancelar y volver a la lista</a>
-<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>
