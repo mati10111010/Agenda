@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mi Agenda de Tareas</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </head>
 <body>
     <h1>Mi Agenda de Tareas</h1>
@@ -29,7 +28,7 @@
                     <td>{{ tarea.fecha_limite }}</td>
                     <td class="acciones">
                         <a href="{{ url_for('editar_tarea', id=tarea.id) }}" class="btn editar-btn">Editar</a>
-                        <a href="{{ url_for('eliminar_tarea', id=tarea.id) }}" class="btn eliminar-btn" onclick="return confirm('¿Estás seguro de que quieres eliminar esta tarea?');">Eliminar</a>
+                        <a href="{{ url_for('eliminar_tarea', id=tarea.id) }}" data-action="delete" class="btn eliminar-btn">Eliminar</a>
                     </td>
                 </tr>
                 {% endfor %}
