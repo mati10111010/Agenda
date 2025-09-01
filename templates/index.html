@@ -8,7 +8,8 @@
 <body>
     <h1>Mi Agenda de Tareas</h1>
     <a href="{{ url_for('crear_tarea') }}" class="btn crear-btn">Crear nueva tarea</a>
-    {% if tareas %}
+    {% if tareas and tareas|length > 0 %}
+        <table border="1" cellpadding="5" cellspacing="0"></table>
         <table>
             <thead>
                 <tr>
